@@ -1,0 +1,22 @@
+{
+    "id": "stand_npc3",
+    "name": "等待 (NPC3)",
+    "type": "stand",
+    "display": {
+        "style": "marker",
+        "marker": {
+            "color": [140, 130, 125],
+            "label": "S3"
+        }
+    },
+    "score": {
+        "base_score": 0.5,
+        "affected_by_state": false,
+        "target_attribute": ""
+    },
+    "execution": {
+        "duration": 1.0,
+        "reward": 0.0,
+        "reward_attribute": ""
+    }
+}

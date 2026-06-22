@@ -1,0 +1,23 @@
+{
+    "id": "eat_snack",
+    "name": "吃零食",
+    "type": "food",
+    "display": {
+        "style": "tile",
+        "tile": {
+            "tile_color": [120, 140, 110],
+            "label": "Snack"
+        }
+    },
+    "score": {
+        "base_score": 0.9,
+        "affected_by_state": true,
+        "target_attribute": "hunger"
+    },
+    "execution": {
+        "duration": 2.5,
+        "reward": 7.0,
+        "reward_attribute": "hunger"
+    }
+}
+

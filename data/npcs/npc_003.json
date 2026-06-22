@@ -1,0 +1,33 @@
+{
+    "id": "npc_003",
+    "name": "Worker C",
+    "initial_state": {
+        "start_position": [2, 2]
+    },
+    "attributes": {
+        "hunger": {
+            "initial_value": 0.0,
+            "min": -10.0,
+            "max": 10.0,
+            "decay_interval": 12.0,
+            "decay_amount": -1.0,
+            "decay_stop_at_min": true,
+            "utility_type": "nonlinear",
+            "k": 2.0
+        },
+        "energy": {
+            "initial_value": 0.0,
+            "min": 0.0,
+            "max": 10.0,
+            "decay_interval": 10.0,
+            "decay_amount": -1.0,
+            "decay_stop_at_min": true,
+            "utility_type": "linear",
+            "k": 1.0
+        }
+    },
+    "movement": {
+        "speed": 4.0
+    },
+    "stand_event_id": "stand_npc3"
+}
