@@ -1,26 +1,8 @@
 import os
-from typing import Dict, List, Tuple
+from typing import List, Tuple
 
 TILE_FLOOR = 0
 TILE_WALL = 1
-
-TILE_EVENT_STAND_NPC1 = 2
-TILE_EVENT_STAND_NPC2 = 3
-TILE_EVENT_STAND_NPC3 = 4
-TILE_EVENT_EAT_MEAL = 5
-TILE_EVENT_EAT_SNACK = 6
-TILE_EVENT_SLEEP_DEEP = 7
-TILE_EVENT_SLEEP_NAP = 8
-
-TILE_TO_EVENT_ID = {
-    TILE_EVENT_STAND_NPC1: 'stand_npc1',
-    TILE_EVENT_STAND_NPC2: 'stand_npc2',
-    TILE_EVENT_STAND_NPC3: 'stand_npc3',
-    TILE_EVENT_EAT_MEAL: 'eat_meal',
-    TILE_EVENT_EAT_SNACK: 'eat_snack',
-    TILE_EVENT_SLEEP_DEEP: 'sleep_deep',
-    TILE_EVENT_SLEEP_NAP: 'sleep_nap',
-}
 
 
 class GridWorld:
@@ -29,7 +11,6 @@ class GridWorld:
         self.grid = []
         self.width = 0
         self.height = 0
-        self.event_positions: Dict[str, List[Tuple[int, int]]] = {}
         self.load_map(map_file)
 
     def load_map(self, filepath):
@@ -55,7 +36,6 @@ class GridWorld:
         self.height = original_height + 2
 
         self.grid = []
-        self.event_positions = {}
 
         self.grid.append([TILE_WALL] * self.width)
 
@@ -68,13 +48,6 @@ class GridWorld:
                     tile = TILE_FLOOR
 
                 row.append(tile)
-
-                if tile in TILE_TO_EVENT_ID:
-                    event_id = TILE_TO_EVENT_ID[tile]
-                    grid_pos = (x + 1, y + 1)
-                    if event_id not in self.event_positions:
-                        self.event_positions[event_id] = []
-                    self.event_positions[event_id].append(grid_pos)
 
             row.append(TILE_WALL)
             self.grid.append(row)
@@ -92,12 +65,6 @@ class GridWorld:
     def is_walkable(self, x, y):
         tile = self.get_tile(x, y)
         return tile != TILE_WALL
-
-    def get_event_positions(self, event_id: str) -> List[Tuple[int, int]]:
-        return self.event_positions.get(event_id, [])
-
-    def get_all_event_positions(self) -> Dict[str, List[Tuple[int, int]]]:
-        return dict(self.event_positions)
 
     def get_world_size(self):
         return self.width * self.tile_size, self.height * self.tile_size

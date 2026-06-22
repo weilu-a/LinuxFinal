@@ -1,0 +1,42 @@
+# Virtual environment
+venv/
+.env/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
+
+# Logs
+*.log
+
+# Test coverage
+.coverage
+htmlcov/
+
+# Docker
+docker-compose.override.yml
+
+# Mac
+*.DS_Store
