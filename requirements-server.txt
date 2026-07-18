@@ -1,0 +1,2 @@
+# Server-only requirements
+# No additional dependencies needed (uses Python standard library only)

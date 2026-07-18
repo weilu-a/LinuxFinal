@@ -1,0 +1,15 @@
+﻿version: '3.8'
+
+services:
+  game-server:
+    build: .
+    container_name: game-server
+    ports:
+      - "5555:5555"
+    restart: unless-stopped
+    networks:
+      - game-network
+
+networks:
+  game-network:
+    driver: bridge

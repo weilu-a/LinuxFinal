@@ -1,7 +1,11 @@
 import socket
 import json
 import threading
+import sys
+import os
 from typing import Dict
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from protocol import *
 from player_manager import PlayerManager
