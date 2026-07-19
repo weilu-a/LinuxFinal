@@ -31,7 +31,7 @@ class Game:
         self.input_handler = InputHandler()
         
         self.local_player_id = str(uuid.uuid4())[:8]
-        self.local_player = Player(self.local_player_id, 100, 100, (0, 255, 0), is_local=True)
+        self.local_player = Player(self.local_player_id, 64, 64, (0, 255, 0), is_local=True)
         
         self.players: Dict[str, Player] = {}
         self.players[self.local_player_id] = self.local_player
@@ -68,26 +68,36 @@ class Game:
                 if event.key == pygame.K_ESCAPE:
                     self.running = False
 
+    def is_position_valid(self, x, y):
+        player_radius = self.local_player.size / 2
+        test_points = [
+            (x - player_radius, y - player_radius),
+            (x + player_radius, y - player_radius),
+            (x - player_radius, y + player_radius),
+            (x + player_radius, y + player_radius),
+            (x, y),
+        ]
+        for px, py in test_points:
+            tile_x = int(px / TILE_SIZE)
+            tile_y = int(py / TILE_SIZE)
+            if self.grid_world.is_wall(tile_x, tile_y):
+                return False
+        return True
+
     def update(self, delta_time):
         if pygame.key.get_focused():
             keys = pygame.key.get_pressed()
             dx, dy = self.input_handler.get_movement_vector(keys)
-            
-            self.local_player.velocity_x = dx * PLAYER_SPEED
-            self.local_player.velocity_y = dy * PLAYER_SPEED
         else:
-            self.local_player.velocity_x = 0
-            self.local_player.velocity_y = 0
+            dx, dy = 0, 0
         
-        self.local_player.update(delta_time)
+        new_x = self.local_player.x + dx * PLAYER_SPEED * delta_time
+        new_y = self.local_player.y + dy * PLAYER_SPEED * delta_time
         
-        tile_x = int(self.local_player.x / TILE_SIZE)
-        tile_y = int(self.local_player.y / TILE_SIZE)
-        if self.grid_world.is_wall(tile_x, tile_y):
-            self.local_player.x -= dx * PLAYER_SPEED * delta_time
-            self.local_player.y -= dy * PLAYER_SPEED * delta_time
-            self.local_player.velocity_x = 0
-            self.local_player.velocity_y = 0
+        if self.is_position_valid(new_x, self.local_player.y):
+            self.local_player.x = new_x
+        if self.is_position_valid(self.local_player.x, new_y):
+            self.local_player.y = new_y
         
         if self.network.connected:
             move_message = {
