@@ -1,5 +1,10 @@
 # Multiplayer Grid Game 🎮
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Pygame](https://img.shields.io/badge/Pygame-FF6B6B?style=flat-square)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+
 [中文版本](README_zh.md)
 
 A simple 2D multiplayer grid-based game built with Python, Pygame, and TCP networking.
@@ -95,10 +100,6 @@ The game uses a JSON-based message protocol over TCP:
 - `LEAVE`: Player leaves the game
 - `MOVE`: Player position update
 - `SYNC`: Full state synchronization
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to submit issues and pull requests.
 
 ## 📄 License
 

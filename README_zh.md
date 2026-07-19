@@ -1,5 +1,10 @@
 # 多人联机网格游戏 🎮
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Pygame](https://img.shields.io/badge/Pygame-FF6B6B?style=flat-square)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+
 [English Version](README.md)
 
 一个使用 Python、Pygame 和 TCP 网络构建的简单 2D 多人联机网格游戏。
@@ -95,10 +100,6 @@ LinuxFinal/
 - `LEAVE`: 玩家离开游戏
 - `MOVE`: 玩家位置更新
 - `SYNC`: 全局状态同步
-
-## 🤝 贡献
-
-欢迎贡献代码！提交 issue 和 pull request 即可。
 
 ## 📄 许可证
 
