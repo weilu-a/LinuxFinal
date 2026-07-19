@@ -1,25 +1,27 @@
-# Multiplayer Grid Game
+# Multiplayer Grid Game 🎮
+
+[中文版本](README_zh.md)
 
 A simple 2D multiplayer grid-based game built with Python, Pygame, and TCP networking.
 
-## Features
+## ✨ Features
 
-- **Multiplayer Support**: Connect multiple clients to a central server for real-time gameplay
-- **Real-time State Sync**: Player positions are synchronized across all connected clients
-- **TCP Networking**: Reliable communication using TCP sockets with JSON message protocol
-- **Grid-based World**: 2D tile-based map with walls and collision detection
-- **Docker Ready**: Containerized server deployment for easy hosting
-- **Cross-platform**: Server runs on Linux, clients run on Windows/Linux
+- 🔗 **Multiplayer Support**: Connect multiple clients to a central server for real-time gameplay
+- 🔄 **Real-time State Sync**: Player positions are synchronized across all connected clients
+- 📡 **TCP Networking**: Reliable communication using TCP sockets with JSON message protocol
+- 🗺️ **Grid-based World**: 2D tile-based map with walls and collision detection
+- 🐳 **Docker Ready**: Containerized server deployment for easy hosting
+- 🌍 **Cross-platform**: Server runs on Linux, clients run on Windows/Linux
 
-## Getting Started
+## 🚀 Getting Started
 
-### Prerequisites
+### 📋 Prerequisites
 
 - Python 3.8+
 - Pygame (for clients)
 - Docker (for containerized deployment, optional)
 
-### Installation
+### 💾 Installation
 
 ```bash
 # Clone the repository
@@ -35,9 +37,9 @@ source venv/bin/activate  # Linux/Mac
 pip install pygame
 ```
 
-### Running the Game
+### ▶️ Running the Game
 
-#### Server
+#### 🖥️ Server
 
 ```bash
 # Start server directly
@@ -47,7 +49,7 @@ python server/main.py
 docker-compose up -d
 ```
 
-#### Client
+#### 🎯 Client
 
 ```bash
 # Connect to local server
@@ -57,12 +59,12 @@ python client/game.py
 # SERVER_HOST = 'your-server-ip'
 ```
 
-## Controls
+## 🎮 Controls
 
 - **WASD**: Move player
 - **ESC**: Exit game
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 LinuxFinal/
@@ -85,7 +87,7 @@ LinuxFinal/
 └── docker-compose.yml # Docker deployment
 ```
 
-## Network Protocol
+## 🔌 Network Protocol
 
 The game uses a JSON-based message protocol over TCP:
 
@@ -94,10 +96,10 @@ The game uses a JSON-based message protocol over TCP:
 - `MOVE`: Player position update
 - `SYNC`: Full state synchronization
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Feel free to submit issues and pull requests.
 
-## License
+## 📄 License
 
 This project is open source for learning purposes.
